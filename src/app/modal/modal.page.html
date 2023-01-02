@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back-outline"class="back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Order Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+    <ion-card>
+      <ion-row class="row">
+        <ion-row>
+          <h5 >Order :{{data.o_id}}test</h5>
+        </ion-row>
+        <ion-row>
+          <h5>
+            ItemName : {{data.item_name}}
+          </h5>
+        </ion-row>
+        <ion-row>
+          <h5>Total Cost : {{data.o_total_price}}test</h5>
+        </ion-row>
+        <ion-row>
+          <h5>
+            Order at :{{data.other}} test
+          </h5>
+        </ion-row>
+      </ion-row>
+    </ion-card>
+</ion-content>

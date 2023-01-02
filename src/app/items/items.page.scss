@@ -1,0 +1,19 @@
+ion-content{
+    .item{
+        margin-left: 10px;
+        margin-right: 10px;
+        background-color: var(--ion-color-red);
+        border-radius: 10px;
+        p{
+            margin-left: 10px;
+        }
+        ion-col{
+            justify-content: center;
+            ion-icon{
+                zoom: 1.7;
+                float: right;
+                margin-top: 5px;
+            }
+        }
+    }
+}

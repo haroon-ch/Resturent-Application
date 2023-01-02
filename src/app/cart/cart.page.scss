@@ -1,0 +1,76 @@
+Headers{
+    ion-button{
+        display: none;
+    }
+}
+ion-card{
+    img{
+        max-width: 4rem;
+        max-height: 4rem;
+        margin: 1rem;
+    }
+    ion-col{
+        .title{
+            margin-top: 0.5rem;
+            h5{
+                margin-top: 0;  
+            }
+        }
+        .quantity{
+            margin-top: 0.4rem;
+            .price{
+                h4{
+                    margin-top: 0.2rem;
+                    // color: rgb(22, 148, 43);
+                    float: left;
+                }
+            }
+            .num{
+                float: right;
+                width: 7rem;
+
+                .minus{
+                    background-color: var(--ion-color-medium);
+                    height: 2rem;
+                    width: 2rem;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    ion-icon{
+                        // color: var(--ion-color-light);
+                        color: black;
+                        padding: 0.6rem;
+                    }
+                }
+                .input{
+                    border: 1px solid var(--ion-color-medium);
+                    float: left;
+                    width: 25%;
+                    text-align: center;
+                    height: 2rem;
+                    justify-content: center;
+                    h6{
+                        margin: 6px 0 0 0;
+                    }
+                }
+                .plus{
+                    float: right;
+                    background-color: var(--ion-color-medium);
+                    height: 2rem;
+                    width: 2rem;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    ion-icon{
+                        // color: var(--ion-color-light);
+                        color: black;
+                        padding: 0.6rem;
+                    }
+                }
+            }
+            
+        }
+    }
+
+}
+.shoping{
+    color: black;
+}

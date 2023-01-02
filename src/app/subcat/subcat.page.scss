@@ -1,0 +1,9 @@
+ion-row{
+    width: 100%;
+    justify-content: center;
+    ion-button{
+        margin: 10px;
+        width: 100%;
+        --background-color: red;
+    }
+}

@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+    <ion-button (click)="back()">
+      <ion-icon name="arrow-back-outline"class="back"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+    <ion-title>Menu Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-grid color="dark">
+    <ion-row >
+      <ion-col class="main" *ngFor="let a of Cat" (click)="sheet(a.m_id)">
+        <h3>{{a.m_name}}</h3>
+        <p>Production Cost:{{a.m_production_cost}}</p>
+        <p>Retail Cost:{{a.m_price}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark" (click)="addnew()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

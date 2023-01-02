@@ -1,0 +1,28 @@
+.center{
+    background-color:red;
+    // background-color:rgb(0, 0, 0,0.4);
+    border-radius: 20px;
+    padding-bottom: 10px;
+    margin: 10px;
+    .head{
+        padding-top: 14px;
+      justify-content: center;
+      margin-bottom: 18px;
+      margin-top: 18px;
+    }
+    .fields{
+      justify-content: center;
+      margin: 17px;
+      ion-input{
+        border:none;
+      border-bottom: 1px solid #929191;
+      padding: 5px 10px;
+      }
+    }
+    ion-button{
+      margin-left: 10px;
+      margin-right: 10px;
+      height: 3.3rem;
+      margin-top: 23px;
+    }
+  }

@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Cart</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content color="medium" >
+    <div [style.display]="display0">
+        <ion-row style="margin-left:10px;color: black;">
+            <h1>Shopping Cart</h1>
+            <!-- test -->
+        </ion-row>
+        <ion-card *ngFor="let grid of cart;let i = index" color="dark">
+            <ion-row>
+                <img src={{grid.image}}>
+                <ion-col>
+                    <ion-row class="title">
+                        <h5>
+                            {{grid.item_name}}
+                        </h5>
+                        <ion-icon name="close-outline" style="position: absolute;top: 6px;right: 5px;zoom:1.3" (click)="close(i)"></ion-icon>
+                    </ion-row>
+                   
+                    <div class="quantity">
+                        <div class="price">
+                            <H4>
+                                Rs{{grid.price*grid.quantity}}
+                            </H4>
+                        </div>
+                        <ion-row class="num" >
+                            <div class="minus" (click)="minus(i)">
+                                <ion-icon name="remove-outline"></ion-icon>
+                            </div>
+                            <div class="input">
+                                <h6>{{index}} {{grid.quantity}}</h6>
+                            </div>
+                            <div class="plus" (click)="add(i)">
+                                <ion-icon name="add-outline"></ion-icon>
+                            </div>
+                        </ion-row>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+        <ion-list>
+            <ion-item color="medium">
+                <ion-label style="float: left;color: black;">Sub Total</ion-label>
+                <ion-label style="float: right; text-align: end;color: black;">Rs{{subtotal}}</ion-label>
+            </ion-item>
+            <ion-item color="medium">
+                <ion-label style="float: left;color: black;">Discount</ion-label>
+                <ion-input style="float: right; text-align: end;color: black;">{{discount}}%</ion-input>
+            </ion-item>
+            <ion-item color="medium">
+                <ion-label style="float: left;color: black;"><b>
+                    Total
+                </b></ion-label>
+                <ion-label style="float: right; text-align: end;color: black;"><b>Rs{{total}}</b></ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-button expand="block"  style="margin:1rem" (click)="addorder()">Order Now</ion-button>
+        <ion-button expand="block" color="success" style="margin:1rem" (click)="updateorder()">Update Now</ion-button>
+    </div>
+    
+    <div  [style.display]="display1" style="text-align: center;margin-top: 20px;color: black;">
+        <h1>You Haven't Added Anything to Cart Yet</h1>
+    </div>
+</ion-content>

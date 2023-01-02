@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Stock Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-row class="main" *ngFor="let a of details"> 
+    <ion-row class="head">
+      <p class="left">Date Purchased</p>
+      <p class="center" > Quantity</p> 
+      <p class="right"  > Price</p>
+      
+    </ion-row>
+    <ion-row class="body">
+      <p class="left1">{{a.ish_date_time}}</p> 
+      <p class="center1" >{{a.ish_quantity}}</p>
+      <p class="right1"  > {{a.ish_price}}</p>
+      
+    </ion-row>
+  </ion-row>
+</ion-content>

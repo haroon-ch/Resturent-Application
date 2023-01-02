@@ -1,0 +1,45 @@
+ion-content{
+  .upper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    .center{
+      background-color:red;
+      width: 90%;
+      height: 21rem;
+      border-radius: 20px;
+      .img{
+        margin-top: 1rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+      .fields{
+        justify-content: center;
+        margin: 1rem;
+        ion-input{
+          border:none;
+        border-bottom: 1px solid #929191;
+        padding: 0.5rem 1rem;
+        }
+      }
+      ion-button{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: 3.3rem;
+      }
+      .radio{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-bottom: 1px solid #929191;
+        ion-item{
+          --background:rgb(0, 0, 0,0);
+          ion-label{
+            color:rgb(185, 183, 183)
+          }
+        }
+      }
+    }
+  }
+}

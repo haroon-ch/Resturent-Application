@@ -1,0 +1,22 @@
+<ion-row>
+  <ion-col *ngFor="let i of item">
+    <div  *ngIf="i.type === 'red'">
+      <ion-card style="background: red">
+        <p>{{i.name}}</p>
+        <ion-item>
+          <h1>{{i.heading}}</h1>
+        </ion-item>
+      </ion-card>
+    </div>
+
+    <div  *ngIf="i.type === 'blue'" >
+      <ion-card style="background: blue">
+        <p>{{i.name}}</p>
+        <ion-item>
+          <h1>{{i.heading}}</h1>
+        </ion-item>
+      </ion-card>
+    </div>
+
+  </ion-col>
+</ion-row>

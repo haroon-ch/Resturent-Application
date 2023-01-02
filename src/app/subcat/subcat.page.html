@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>View Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+  <ion-searchbar [(ngModel)]="filterTerm"></ion-searchbar>
+  <ion-row *ngFor="let a of subcat | filter:filterTerm">
+    <ion-button expand="block" color="dark" (click)="sheet(a.isc_id,a.is_name,a.ic_id,a.min_quantity)">{{a.is_name}}</ion-button>
+  </ion-row>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark" (click)="addnew()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

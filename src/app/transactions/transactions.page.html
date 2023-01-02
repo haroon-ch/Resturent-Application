@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>See All Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-segment color="dark" [(ngModel)]="sign">
+    <ion-segment-button value="in">
+      <ion-icon name="eye-outline"></ion-icon>
+      <ion-label>Get Detail Transaction</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="up">
+      <ion-icon name="eye-outline"></ion-icon>
+      <ion-label> Get total Transaction</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div color="success" class="main" [ngSwitch]="sign">
+    <ion-list class="f" *ngSwitchCase="'in'">
+      <form #form="ngForm">
+  <ion-row style="border-bottom: 1px solid black;">
+    <div style="width: 90%; margin-left: 20px; margin-right: 20px;">
+      <p class="start">Start Date</p>
+      <p class="end">End Date</p>
+    </div>
+    <div style="width: 90%; margin-left: 20px; margin-right: 20px;">
+      <ion-datetime style="margin-left: -21px;width: 50%; float: left;" placeholder="Select Date" display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" name="start" [(ngModel)]="data.start"
+      ></ion-datetime>
+      <ion-datetime style="margin-right: -5px;float: right;" placeholder="Select Date" min={{data.start}} display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" name="end" [(ngModel)]="data.end" >
+      </ion-datetime>
+    </div>
+  </ion-row>
+  <ion-item lines="none" style="--background:transparent;">
+    <ion-label>Filter</ion-label>
+    <ion-select name="id" [(ngModel)]="data.id" interface="action-sheet">
+      <ion-select-option value={{a.id}} *ngFor="let a of filter">{{a.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="block" color="light" (click)="check()" [disabled]="data.id==null || data.start==null || data.end==null ">See Data</ion-button>
+  <ion-grid>
+    <ion-row color="success" >
+      <ion-col *ngFor="let trans of transactions">
+        <div *ngIf="trans.number == 1">
+          <ion-item text-center lines="none" style="margin-top: 1px;"><ion-label>Id: {{trans.o_id}}</ion-label></ion-item>
+          <ion-item text-center lines="none"><ion-label>Date:{{trans.date}}</ion-label></ion-item>
+          <ion-item lines="none"><ion-label>Total Price: {{trans.o_total_price}}</ion-label></ion-item>
+          <ion-item lines="none"><ion-label>Status: {{trans.o_status}}</ion-label></ion-item>
+          <!-- <ion-button color="light" expand="block" (click)="showdetail(trans.invoice_id)" >View Detail</ion-button> -->
+        </div>
+        <div *ngIf="trans.number == 2">
+          <ion-item text-center lines="none" ><ion-label>Id: {{trans.isc_id}}</ion-label></ion-item>
+          <ion-item text-center lines="none"><ion-label>Date: {{trans.ish_date_time}}</ion-label></ion-item>
+          <ion-item text-center lines="none"><ion-label>Total Quantity: {{trans.ish_quantity}}</ion-label></ion-item>
+          <ion-item text-center lines="none"><ion-label>Total Price: {{trans.ish_price}}</ion-label></ion-item>
+          <ion-item lines="none"><ion-label>Dealer Name: {{trans.ish_deller}}</ion-label></ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+</ion-list>
+
+    <ion-list class="f" *ngSwitchCase="'up'">
+      <form #form="ngForm">
+
+        <ion-row style="border-bottom: 1px solid black;">
+          <div style="width: 90%; margin-left: 20px; margin-right: 20px;">
+            <p class="start">Start Date</p>
+            <p class="end">End Date</p>
+          </div>
+          <div style="width: 90%; margin-left: 20px; margin-right: 20px;">
+            <ion-datetime style="margin-left: -21px;width: 50%; float: left;" placeholder="Select Date" display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" name="start" [(ngModel)]="data.start"
+            ></ion-datetime>
+            <ion-datetime style="margin-right: -5px;float: right;" placeholder="Select Date" min={{data.start}} display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" name="end" [(ngModel)]="data.end" >
+            </ion-datetime>
+          </div>
+        </ion-row>
+        <ion-button expand="block" color="light" (click)="show()" [disabled]="data.start==null || data.end==null ">See All Data</ion-button>
+        <ion-button expand="block" color="light"  [disabled]="data.start==null || data.end==null ">Print Data</ion-button>
+        <ion-grid style="background: white; border-radius: 20px; margin: 10px; padding: 10px; color: black">
+          <div style="width: 100% ; padding: 10px">
+            <ion-label >
+              Total sale
+            </ion-label>
+            <ion-label style="float: right;" >
+              {{this.totalsale[0].total_sale}}
+            </ion-label>
+          </div>
+        </ion-grid>
+        <ion-grid style="background: white; height: 60px; border-radius: 20px; margin: 10px; padding: 10px ; color: black">
+          <div style="width: 100% ; padding: 10px">
+            <ion-label >
+              Total Expense
+            </ion-label>
+            <ion-label style="float: right;" >
+              {{this.totalex[0].total_expense}}
+            </ion-label>
+          </div>
+        </ion-grid>
+        <ion-grid style="background: white; height: 60px; border-radius: 20px; margin: 10px; padding: 10px; color: black">
+          <div style="width: 100% ; padding: 10px">
+            <ion-label >
+              Total Purchased Stock
+            </ion-label>
+            <ion-label style="float: right;" >
+              {{this.totalpur[0].total_purchased}}
+            </ion-label>
+          </div>
+        </ion-grid>
+      </form>
+    </ion-list>
+
+  </div>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid color="dark">
+    <ion-row>
+      <ion-col color="dark" *ngFor="let a of data" (click)="sheet(a.mc_id)">
+        <img src={{a.image}}>
+        <br>
+        {{a.mc_name}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark" (click)="addnew()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

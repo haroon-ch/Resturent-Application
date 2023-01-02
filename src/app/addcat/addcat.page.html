@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <div class="center">
+    <ion-row class="head">
+      Item Name
+    </ion-row>
+    <form #form="ngForm" (ngSubmit)="add(form)">
+    <ion-row class="fields">
+      <ion-input type="text" placeholder="Name" name="Name"  [(ngModel)]="data.name"></ion-input>
+    </ion-row>
+    <ion-row class="fields">
+      <ion-button expand="block" color="light" (click)="selectImageSource()">Upload</ion-button>
+    </ion-row>
+    <img *ngIf="images!=null" src={{images}}>
+    <ion-button expand="block"  [disabled]="data.name==null || images==null" (click)="add()" >Add</ion-button>
+    </form>
+  </div>
+</ion-content>

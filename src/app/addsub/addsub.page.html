@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Menu Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <div class="center">
+    <ion-row class="head">
+      Item Name
+    </ion-row>
+    <ion-row class="fields">
+      <ion-input type="text" placeholder="Name" name="name"  [(ngModel)]="Menu.name"></ion-input>
+    </ion-row>
+    <ion-row class="fields">
+      <ion-input type="text" placeholder="Production Cost" name="cost"  [(ngModel)]="Menu.cost"></ion-input>
+    </ion-row>
+    <ion-row class="fields">
+      <ion-input type="text" placeholder="Retail Price" name="price"  [(ngModel)]="Menu.price"></ion-input>
+    </ion-row>
+<!--    <ion-item lines="none" style="&#45;&#45;background: transparent;">-->
+<!--      <ion-label>Select Gradients</ion-label>-->
+<!--      <ion-select  okText="Okay" multiple="true" cancelText="Dismiss" [(ngModel)]="selectedArray"  (ionChange)="onChange()">-->
+<!--        <ion-select-option *ngFor="let a of stock" [value]="{id: a.isc_id, name: a.is_name}">{{a.is_name}}</ion-select-option>-->
+<!--      </ion-select>-->
+<!--    </ion-item>-->
+    <!-- <ion-item lines="none" style="--background: transparent;">
+      <ion-label>Select Gradients</ion-label>
+      <ionic-selectable [(ngModel)]="selectedArray" itemValueField="isc_id" itemTextField="is_name" [items]="stock" [canSearch]="true" [isMultiple]="true"
+                        (onChange)="  onChange()">
+      </ionic-selectable>
+    </ion-item> -->
+    <ion-row class="fields" *ngFor="let a of selectedArray">
+      <ion-input type="text" placeholder={{a.is_name}} name={{a.is_name}}  [(ngModel)]="a.quantity" ></ion-input>
+    </ion-row>
+    <ion-button expand="block" (click)="check()">Add</ion-button>
+  </div>
+</ion-content>

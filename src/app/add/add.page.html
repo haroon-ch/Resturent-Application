@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <div class="center">
+    <ion-row class="head">
+      Item Name
+    </ion-row>
+    <form #form="ngForm" (ngSubmit)="add(form)">
+      <ion-row class="fields">
+        <ion-input type="number" placeholder="Quantity In Grams" name="quantity"  [(ngModel)]="data.quantity"></ion-input>
+      </ion-row>
+      <ion-row class="fields">
+        <ion-input type="number" placeholder="Price" name="price" [(ngModel)]="data.price"></ion-input>
+      </ion-row>
+      <ion-row class="fields">
+        <ion-input type="email" placeholder="Dealer Name" name="dealer" [(ngModel)]="data.dealer"></ion-input>
+      </ion-row>
+      <ion-button expand="block"  type="submit"  [disabled]="form.invalid || input">Add</ion-button>
+    </form>
+  </div>
+
+</ion-content>

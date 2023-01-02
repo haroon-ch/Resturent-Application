@@ -1,0 +1,48 @@
+.main{
+    margin: 10px;
+    border: 1px solid black;
+    background-color: red;
+    border-radius: 10px;
+    .right11{
+        float: right; 
+        margin-right: 20px;
+     }
+    .head{
+        display: inline;
+        width: 100%;
+        .left{
+            float: left;
+            margin-left: 10px;
+        }
+        .center{
+            margin:0 auto;
+            margin-top: 16px;
+            width:140px;
+            padding-left: 50px;
+        }
+        .right{
+           float: right; 
+           margin-right: 20px;
+           margin-top: -22px;
+        }
+    }
+    .body{
+        display: inline;
+        width: 100%;
+        .left1{
+            float: left;
+            margin-left: 10px;
+        }
+        .center1{
+            margin:0 auto;
+            margin-top: 15px;
+            width:100px;
+            padding-left: 50px;
+        }
+        .right1{
+           float: right; 
+           margin-right: 20px;
+           margin-top: -22px;
+        }
+    }
+}

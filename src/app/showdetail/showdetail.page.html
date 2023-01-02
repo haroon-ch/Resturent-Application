@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Customer Ledger</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <table>
+    <thead>
+    <tr>
+      <th style="background: #333; ">Date</th>
+      <th style="background: #333; ">Total</th>
+      <th style="background: rgb(4, 151, 70); ">Debit</th>
+      <th style="background: rgb(204, 13, 13); ">Credit</th>
+      <th style="background: rgb(204, 13, 13); ">Net Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let a of data">
+      <td>{{a.other}}</td>
+      <td>{{a.total}}</td>
+      <td>{{a.debit}}</td>
+      <td>{{a.credit}}</td>
+      <td>{{a.net_balance}}</td>
+      <!--       <ion-button style="margin: 1px" (click)="updatecustomerbalance(a)"></ion-button>-->
+    </tr>
+    </tbody>
+  </table>
+  <ion-item style="--background: transparent;">
+    <ion-label style="width: 80%;">
+      Total
+    </ion-label>
+    <ion-input name="total" type="number" [(ngModel)]="rece.total" text-right  style="border-bottom: 1px solid black;"></ion-input>
+  </ion-item>
+  <ion-item style="--background: transparent;">
+    <ion-label style="width: 80%;">
+      Debit
+    </ion-label>
+    <ion-input name="debit" type="number" [(ngModel)]="rece.debit" text-right  style="border-bottom: 1px solid black;"></ion-input>
+  </ion-item>
+  <ion-button  expand="block" color="dark" style="margin:10px;height:2.5rem" (click) = updatecustomerbalance()>Total</ion-button>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+  <ion-row class="upper">
+    <div class="center">
+      <ion-row class="img">
+        <ion-avatar>
+          <img src="../../assets/icon/unnamed.png">
+        </ion-avatar>
+
+      </ion-row>
+      <form #form="ngForm" (ngSubmit)="login(form)">
+      <ion-row class="fields">
+        <ion-input name="name"  type="text" placeholder="User Name" [(ngModel)]="signin.username"></ion-input>
+      </ion-row>
+      <ion-row class="fields">
+        <ion-input name="password" type="password" placeholder="Password"  [(ngModel)]="signin.password"></ion-input>
+      </ion-row>
+        <ion-radio-group name="role" [(ngModel)]="signin.role" >
+          <ion-row class="radio">
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label style="color: white;">Admin</ion-label>
+                <ion-radio slot="start" color="success" value="admin"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label style="color: white;">Staff</ion-label>
+              <ion-radio slot="start" value="staff"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      <ion-button expand="block"  type="submit" [disabled]="form.invalid || signin.role==''">Login</ion-button>
+    </form>
+    </div>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Account Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+  <ion-segment color="dark" [(ngModel)]="sign">
+    <ion-segment-button value="cu">
+      <ion-icon name="add"></ion-icon>
+      <ion-label>Customer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="se">
+      <ion-icon name="add"></ion-icon>
+      <ion-label>Distributer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="ex">
+      <ion-icon name="add"></ion-icon>
+      <ion-label>Expense</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div color="dark" class="main" [ngSwitch]="sign">
+    <ion-list class="f" *ngSwitchCase="'cu'">
+      <form #form="ngForm" (ngSubmit)="addcu()">
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Customer Name</ion-label> -->
+          <ion-input placeholder="Customer Name" name="name" type="text" [(ngModel)]="cu.name"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Customer Address</ion-label> -->
+          <ion-input placeholder="Customer Address" name="address" type="text" [(ngModel)]="cu.address"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Customer Mobile No</ion-label> -->
+          <ion-input placeholder="Customer Mobile No" name="address" type="text" [(ngModel)]="cu.mobile_no"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="dark" type="submit" [disabled]="form.invalid">Add</ion-button>
+      </form>
+      <ion-searchbar (ionInput)="filtercu($event)"></ion-searchbar>
+      <ion-item-sliding *ngFor="let a of customer">
+        <ion-item>
+          {{a.name}}
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="dark" (click)="details(a.c_id)">See Detail</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list class="f" *ngSwitchCase="'se'">
+      <form #form="ngForm" (ngSubmit)="addse()">
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Distributer Name</ion-label> -->
+          <ion-input placeholder="Distributer Name" name="name" type="text" [(ngModel)]="se.name"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Distributer Address</ion-label> -->
+          <ion-input placeholder="Distributer Address" name="address" type="text" [(ngModel)]="se.address"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Mobile NO</ion-label> -->
+          <ion-input placeholder="Mobile No" name="address" type="text" [(ngModel)]="se.mobile_no"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="dark" type="submit" [disabled]="form.invalid">Add</ion-button>
+      </form>
+      <ion-searchbar (ionInput)="filterse($event)"></ion-searchbar>
+      <ion-item-sliding *ngFor="let a of seller">
+        <ion-item>
+          {{a.name}}&nbsp;{{a.address}}
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="dark" (click)="deletese(a.s_id)">See Detail</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list class="f" *ngSwitchCase="'ex'">
+      <form #form="ngForm" (ngSubmit)="addex()">
+        <ion-item lines="none">
+          <!-- <ion-label color="dark" position="floating">Add Expense</ion-label> -->
+          <ion-input placeholder="Add Expense" name="name" type="text" [(ngModel)]="ex.name"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="danger" type="submit" [disabled]="form.invalid">Add</ion-button>
+      </form>
+      <ion-searchbar (ionInput)="filterex($event)"></ion-searchbar>
+      <ion-item-sliding *ngFor="let a of expense">
+        <ion-item>
+          {{a.name}}
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="dark" (click)="detailex(a.e_id)">See Detail</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+</ion-content>

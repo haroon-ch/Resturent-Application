@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Raw Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-grid color="dark">
+    <ion-row>
+      <ion-col *ngFor="let grid of products" (click)="getsub(grid.ic_id,grid.ic_name)" color="dark">
+        {{grid.ic_name}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark" (click)="addnew()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

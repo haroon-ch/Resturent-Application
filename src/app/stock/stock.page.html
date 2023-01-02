@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Stock</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-row>
+    <ion-segment color="dark" [(ngModel)]="sign" mode="ios">
+
+      <ion-segment-button value="Purchase">
+        <ion-label>To be Purchased</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Stock">
+        <ion-label>All Stock</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-row>
+
+  <div [ngSwitch]="sign">
+    <ion-list *ngSwitchCase="'Purchase'">
+      <ion-searchbar (ionInput)="filterorder($event)"></ion-searchbar>
+      <ion-row class="main" *ngFor="let a of less" >
+        <ion-row class="head">
+          <p class="left">{{a.is_name}}</p>
+          <p class="right11">{{a.is_remaining}}</p>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Stock'">
+      <ion-searchbar (ionInput)="filtero($event)"></ion-searchbar>
+      <ion-row class="main" *ngFor="let a of stock" (click)="detail(a.isc_id)">
+        <ion-row class="head">
+          <p class="left">{{a.is_name}}</p>
+          <p class="right11">{{a.is_remaining}}</p>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+  </div>
+
+</ion-content>

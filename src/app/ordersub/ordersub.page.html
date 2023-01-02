@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ name }}</ion-title>
+    <ion-icon slot="end" class="icon        " routerLink="/cart" name="cart"
+    ></ion-icon>
+    <ion-badge class="badge" *ngIf="this.badgeValue > 0">{{this.badgeValue}} </ion-badge>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-row class="image"><img src={{image}}></ion-row>
+  <ion-row class="title">
+    <h1><b>Rs{{price}}</b></h1>
+  </ion-row>
+  <ion-row [style.display]="dis" class="title">
+    <H3 class="orignal"><s>${{orignal}}</s></H3>
+    <H3 class="discount">-{{discount}}%</H3>
+  </ion-row>
+  <ion-row class="tittle">
+    <h1>{{name}}</h1>
+  </ion-row>
+  <ion-row class="weight">
+    <ion-label>Select Type</ion-label>
+    <ion-select class="select" placeholder="Select One" name="menu" type="submit" [(ngModel)]="quantity"
+      (ionChange)="function(quantity,0)" interface="action-sheet" value="{{default}}">
+      <ion-select-option *ngFor="let grid of menu" value={{grid.m_id}}>{{grid.m_name}}</ion-select-option>
+    </ion-select>
+
+  </ion-row>
+  <ion-row class="quantity">
+    <div class="minus" (click)="function(0,1)">
+      <ion-icon name="remove-outline"></ion-icon>
+    </div>
+    <div class="input">
+      <h3>{{number}}</h3>
+    </div>
+    <div class="plus" (click)="function(0,2)">
+      <ion-icon name="add-outline"></ion-icon>
+    </div>
+  </ion-row>
+  <ion-button expand="block" (click)="order(cart)" color="dark"
+    style="margin-left: 2rem; margin-right: 2rem; height: 3rem;">
+    <ion-icon name="cart-outline"></ion-icon>
+    Add to Cart
+  </ion-button>
+  <!--   
+  <ion-row class="description">
+    <h3>Description :</h3>
+    <pre>{{description}}</pre>
+  </ion-row> -->
+</ion-content>

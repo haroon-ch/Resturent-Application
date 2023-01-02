@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <ion-row>
+    <ion-segment color="dark" [(ngModel)]="sign" mode="ios">
+
+      <ion-segment-button value="Pending">
+        <ion-label>Pending</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Cancelled">
+        <ion-label>Cancelled</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Completed">
+        <ion-label>Completed</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="All">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-row>
+
+  <div [ngSwitch]="sign">
+    <ion-list *ngSwitchCase="'All'">
+      <ion-row class="row" *ngFor="let a of all">
+        <ion-row>
+          <h5>Order :{{a.o_id}}</h5>
+        </ion-row>
+        <p>Order at :{{a.other}}</p>
+        <ion-row>
+          <h4>
+            Total Cost : {{a.o_total_price}}
+          </h4>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Cancelled'">
+      <ion-row class="row" *ngFor="let a of cancelled">
+        <ion-row>
+          <h5>Order :{{a.o_id}}</h5>
+        </ion-row>
+        <p>Order at :{{a.other}}</p>
+        <ion-row>
+          <h4>
+            Total Cost : {{a.o_total_price}}
+          </h4>
+        </ion-row>
+        <ion-row>
+          <ion-button color="success" expand="block" (click)="deliver(a.o_id)">Delivered</ion-button>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Pending'">
+      <ion-row class="row" *ngFor="let a of pending">
+        <ion-row>
+          <h5>Order :{{a.o_id}}</h5>
+        </ion-row>
+        <p>Order at :{{a.other}}</p>
+        <ion-row>
+          <h4>
+            Total Cost : {{a.o_total_price}}
+          </h4>
+        </ion-row>
+        <ion-row>
+          <ion-button color="success" expand="block" (click)="deliver(a.o_id)">Delivered</ion-button>
+          <ion-button color="danger" expand="block" (click)="cancel(a.o_id)">Cancelled</ion-button>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Completed'">
+      <ion-row class="row" *ngFor="let a of completed">
+        <ion-row>
+          <h5>Order :{{a.o_id}}</h5>
+        </ion-row>
+        <p>Order at :{{a.other}}</p>
+        <ion-row>
+          <h4>
+            Total Cost : {{a.o_total_price}}
+          </h4>
+        </ion-row>
+        <ion-row>
+          <ion-button color="danger" expand="block" (click)="cancel(a.o_id)">Cancelled</ion-button>
+        </ion-row>
+      </ion-row>
+    </ion-list>
+  </div>
+</ion-content>

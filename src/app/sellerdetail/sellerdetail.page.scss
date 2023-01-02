@@ -1,0 +1,50 @@
+// ion-toolbar {
+//   --background: var(--ion-color-success);
+// }
+ion-content {
+  // --background: linear-gradient(to bottom, #5f8ff8, #ffffff);
+  @media screen and (max-width: 550px) {
+    td,th  {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    td,th  {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    td,th  {
+      font-size: 11px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    td,th  {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 370px) {
+    td,th  {
+      font-size: 9px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) {
+    background: black;
+  }
+  th {
+    background: #333;
+    color: white;
+  }
+  td, th {
+    padding: 3px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+}

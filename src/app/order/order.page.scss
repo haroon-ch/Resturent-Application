@@ -1,0 +1,33 @@
+ion-row{
+    margin: 10px;
+    ion-segment-button{
+        margin: 5px;
+    }
+}
+ion-list{
+    background: transparent; 
+}
+.row{
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: red;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    ion-row{
+        width: 100%;
+        justify-content: center;
+        ion-button{
+            width: 48%;
+        }
+    }
+}
+.btn{
+    border-radius: 20px;
+}
+.cancel{
+    background: white;
+}
+.update{
+    background: green;
+}

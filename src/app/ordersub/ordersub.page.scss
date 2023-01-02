@@ -1,0 +1,109 @@
+.image{
+    justify-content: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--ion-color-red);
+    box-shadow: 0px 2px 10px 2px rgb(100, 99, 99);
+    img{
+        height: 15rem;
+    }
+}
+.icon{
+    zoom: 1.5;
+    margin-right: 12px;
+  }
+.tittle{
+    margin-left: 1rem;
+    margin-bottom: 0;
+    h1{
+        margin-top: 0;
+        font-family: times-new-roman;
+    }
+}
+.title{
+    margin-left: 1rem;
+    margin-bottom: 0;
+    color: black;
+    h1{
+        font-family: times-new-roman;
+        color: rgb(26, 216, 57);
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+    .discount{
+        margin-top: 0;
+        font-family: times-new-roman;
+    }
+    .orignal{
+        margin-top: 2px;
+        font-family: times-new-roman;
+        opacity: 0.5;
+    }
+}
+.description{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    h3{
+        font-family: times-new-roman;
+    }
+    pre{
+        margin-top: 0;
+        white-space: pre-wrap;  
+        font-family: times-new-roman;
+        width: 100%;
+    }
+}
+.quantity{
+    justify-content: center;
+    .minus{
+        float:left; 
+        background-color: var(--ion-color-red);
+        height: 2.8rem;
+        width: 2.8rem;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        ion-icon{
+            color: var(--ion-color-light);
+            padding: 0.9rem;
+        }
+    }
+    .input{
+        border: 1px solid var(--ion-color-red);
+        float:left;
+        width: 60%;
+        text-align: center;
+        justify-content: center;
+        color: black;
+        h3{
+            margin: 6px 0 0 0;
+        }
+    }
+    .plus{
+        float:right;
+        background-color: var(--ion-color-red);
+        height: 2.8rem;
+        width: 2.8rem;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        ion-icon{
+            color: var(--ion-color-light);
+            padding: 0.9rem;
+        }
+    }
+}
+.weight{
+    color: black;
+    justify-content: center;
+    ion-label{
+        margin-top: 10px;
+        color: black;
+    }
+}
+.select{
+    color: black;
+}
+.badge{
+    float: right;
+    margin-right: -35px;
+    margin-top: -23px;
+}
